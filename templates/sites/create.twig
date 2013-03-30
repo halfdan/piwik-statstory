@@ -1,0 +1,21 @@
+{% extends "application.twig" %}
+
+{% block content %}
+<form action="/sites" method="post">
+  <fieldset>
+    <legend>Add Website</legend>
+    <label>Name</label>
+    <input name="piwik_name" type="text" placeholder="Piwik Demo">
+
+    <label>Piwik URL</label>
+    <input name="piwik_url" type="text" placeholder="http://demo.piwik.org">
+
+    <label>Piwik Token</label>
+    <input name="piwik_token" type="text" placeholder="anonymous">
+
+    <br />
+
+    <input type="submit" class="btn">Create</button>
+  </fieldset>
+</form>
+{% endblock %}

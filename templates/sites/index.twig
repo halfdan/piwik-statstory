@@ -1,0 +1,16 @@
+{% extends "application.twig" %}
+
+{% block content %}
+<h2>Websites</h2>
+<p>You can create a new website here.</p>
+
+{% if sites|length > 0 %}
+<ul>
+    {% for site in sites %}
+         <li><a href="/sites/{{ site.id }}">{{ site.name|e }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<a href="/sites/create">Add Website</a>
+{% endblock %}
