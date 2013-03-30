@@ -1,6 +1,8 @@
 {
     "require": {
+        "twig/twig": "1.12.*",
         "slim/slim": "2.*",
-        "slim/extras": "2.*"
+        "slim/extras": "2.*",
+        "knplabs/knp-piwik-client": "dev-master"
     }
 }
