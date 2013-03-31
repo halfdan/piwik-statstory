@@ -4,6 +4,7 @@ require '../rb.php';
 
 use Slim\Slim;
 use Slim\Extras\Views\Twig as Twig;
+use Knp\PiwikClient as PiwikClient;
 
 
 Twig::$twigTemplateDirs = array("../templates");
@@ -55,5 +56,17 @@ $app->get('/sites/:id', function($id) use ($app) {
     $app->render('sites/show.twig', array('site' => $site));
 });
 
+$app->get('/sites/:id/availableReports', function($id) use ($app) {
+    $site = R::load('site', $id);
+    $connection = new PiwikClient\Connection\HttpConnection($site->url);
+    $client     = new PiwikClient\Client($connection, $site->token);
+
+    echo $client->call('API.getReportMetadata', array(), 'json');
+});
+
+$app->get('/reports/create', function() use ($app) {
+    
+    $app->render('reports/create.twig', array('sites' => $sites));
+});
 
 $app->run();

@@ -5,11 +5,26 @@
 <p>You can create a new website here.</p>
 
 {% if sites|length > 0 %}
-<ul>
-    {% for site in sites %}
-         <li><a href="/sites/{{ site.id }}">{{ site.name|e }}</a></li>
-    {% endfor %}
-</ul>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>URL</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for site in sites %}
+        <tr>
+            <td>{{ site.id }}</td>
+            <td>{{ site.name }}</td>
+            <td>{{ site.url }}</td>
+            <td><a href="/sites/{{ site.id }}">Show</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endif %}
 
 <a href="/sites/create">Add Website</a>

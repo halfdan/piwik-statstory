@@ -1,0 +1,26 @@
+{% extends "application.twig" %}
+
+{% block content %}
+<h2>Create new Report</h2>
+
+<form action="/reports" method="post">
+    <div class="control-group">
+        <label class="control-label">Report Name</label>
+        <div class="controls">
+            <input name="report_name" type="text" placeholder="Great Report">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">Website</label>
+        <div class="controls">
+            <select class="span5">
+
+            </select>
+        </div>
+    </div>
+
+
+
+</form>
+{% endblock %}
